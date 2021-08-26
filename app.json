@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "labb-fall21",
+    "slug": "labb-fall21",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "labb-fall21"
+}
