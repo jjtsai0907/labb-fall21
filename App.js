@@ -1,21 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
+
 
 export default function App() {
+
+  // Fetching data from RandomUser API
+  useEffect(() => {
+    fetch("https://randomuser.me/api/")
+    .then((res) => res.json())
+    .then((json) => {
+      console.log(json.results[0].gender);
+    })
+    .catch((err) => console.log(err));
+  }, []);
+
+
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View >
+      
+      
+      <Text>Labb Fall21</Text>
+      
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
