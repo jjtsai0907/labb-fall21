@@ -1,30 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useEffect } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
-
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { Provider } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+import Home from "./components/Home";
+import { View } from "react-native";
+import { RootReducer } from "./components/RootReducer";
 
 export default function App() {
-
-  // Fetching data from RandomUser API
-  useEffect(() => {
-    fetch("https://randomuser.me/api/")
-    .then((res) => res.json())
-    .then((json) => {
-      console.log(json.results[0].gender);
-    })
-    .catch((err) => console.log(err));
-  }, []);
-
-
+  // Redux Store
+  const store = configureStore({
+    reducer: RootReducer,
+  });
 
   return (
-    <View >
-      
-      
-      <Text>Labb Fall21</Text>
-      
-    </View>
+    <Provider store={store}>
+      <View>
+        <Home />
+      </View>
+    </Provider>
   );
 }
-
-
+//const styles = StyleSheet.create({});
